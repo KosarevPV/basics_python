@@ -11,7 +11,7 @@ class ComplexNumber:
         num_1 = str(self.c_num).split('+')
         num_2 = str(other.c_num).split('+')
         num_3 = f'{(int(num_1[0]) + int(num_2[0]))}+{(int(num_1[1][:-1]) + int(num_2[1][:-1]))}i'
-        return f'Результат суммы {num_3}'
+        return ComplexNumber(num_3)
 
     def __mul__(self, other):
         num_1 = str(self.c_num).split('+')
@@ -21,12 +21,12 @@ class ComplexNumber:
         c = int(num_2[0])
         d = int(num_2[1][:-1])
         num_3 = f'{(a * c) - (b * d)}+{(b * c) + (a * d)}i'
-        return f'Результат умножения {num_3}'
+        return ComplexNumber(num_3)
 
 
 n_1 = ComplexNumber('3+9i')
 n_2 = ComplexNumber('12+2i')
 n_3 = n_1 + n_2
-print(n_3)
+print(n_3.c_num)
 n_4 = n_1 * n_2
-print(n_4)
+print(n_4.c_num)
